@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Store Menu</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      background-color: #FFC0CB;
+      margin: 0;
+      padding: 0;
+      background-image: linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%), linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%);
+      background-size: 20px 20px;
+    }
+
+    h1 {
+      color: #C71585;
+      background-color: #DB7093;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 75px;
+      font-family: 'Times New Roman', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    #menu-container {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 40px;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    button {
+      background-color: #FF1493;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #663399;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      margin: 20px;
+      background-color: #DB7093;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 200px;
+    }
+
+    img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    p {
+      color: #000000;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+   <h1>
+    <img class="logo" src="your_logo.png" alt="Logo">
+    Clothing Store Menu
+  </h1>
+  <div id="menu-container">
+    <button onclick="toggleCategory('jeans')"><b>Jeans</b></button> 
+    <button onclick="toggleCategory('t-shirt')"><b>T-Shirts</b></button> 
+    <button onclick="toggleCategory('sando')"><b>Sandals (Sando)</b></button> 
+    <button onclick="toggleCategory('perfume')"><b>Perfume</b></button> 
+    <button onclick="toggleCategory('toys')"><b>Toys</b></button> <!-- Order results will be displayed here -->
+     <h2>Order Summary</h2>
+    <ul id="orderList"></ul>Total Order: <span id="totalOrder">P0.00</span> <!-- Order summary -->
+    
+    
+    <div id="total-summary"></div><!-- Jeans Section -->
+    <div id="jeans-section" style="display: none;">
+      <h2>Jeans</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="jeans1.jpg" alt="Jeans 1">
+          <p><b>Blue Jeans - ₱500.00 per piece</b></p><button onclick="addItem('Blue Jeans')">Add to Order</button> <input type="number" id="BlueJeansQuantity" value="1" min="1">
+          <p id="BlueJeansStock">Stock: 10</p>
+        </li>
+        <li>
+          <img src="jeans2.jpg" alt="Jeans 2">
+          <p><b>Black Jeans - ₱550.00 per piece</b></p><button onclick="addItem('Black Jeans')">Add to Order</button> <input type="number" id="BlackJeansQuantity" value="1" min="1">
+          <p id="BlackJeansStock">Stock: 8</p>
+        </li>
+        <li>
+          <img src="jeans3.jpg" alt="Jeans 3">
+          <p><b>White Jeans - ₱550.00 per piece</b></p><button onclick="addItem('White Jeans')">Add to Order</button> <input type="number" id="WhiteJeansQuantity" value="1" min="1">
+          <p id="WhiteJeansStock">Stock: 6</p>
+        </li>
+        <li>
+          <img src="jeans4.jpg" alt="Jeans 4">
+          <p><b>Gray Jeans - ₱550.00 per piece</b></p><button onclick="addItem('Gray Jeans')">Add to Order</button> <input type="number" id="GrayJeansQuantity" value="1" min="1">
+          <p id="GrayJeansStock">Stock: 5</p>
+        </li>
+      </ul>
+    </div><!-- T-Shirt Section -->
+    <div id="t-shirt-section" style="display: none;">
+      <h2>T-Shirts</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="tshirt1.jpg" alt="T-Shirt 1">
+          <p><b>White T-Shirt - ₱200.00 per piece</b></p><button onclick="addItem('White T-Shirt')">Add to Order</button> <input type="number" id="WhiteTShirtQuantity" value="1" min="1">
+          <p id="WhiteTShirtStock">Stock: 15</p>
+        </li>
+        <li>
+          <img src="tshirt2.jpg" alt="T-Shirt 2">
+          <p><b>Black T-Shirt - ₱220.00 per piece</b></p><button onclick="addItem('Black T-Shirt')">Add to Order</button> <input type="number" id="BlackTShirtQuantity" value="1" min="1">
+          <p id="BlackTShirtStock">Stock: 12</p>
+        </li>
+        <li>
+          <img src="tshirt3.jpg" alt="T-Shirt 3">
+          <p><b>Red T-Shirt - ₱200.00 per piece</b></p><button onclick="addItem('Red T-Shirt')">Add to Order</button> <input type="number" id="RedTShirtQuantity" value="1" min="1">
+          <p id="RedTShirtStock">Stock: 10</p>
+        </li>
+        <li>
+          <img src="tshirt4.jpg" alt="T-Shirt 4">
+          <p><b>Green T-Shirt - ₱200.00 per piece</b></p><button onclick="addItem('Green T-Shirt')">Add to Order</button> <input type="number" id="GreenTShirtQuantity" value="1" min="1">
+          <p id="GreenTShirtStock">Stock: 8</p>
+        </li>
+      </ul>
+    </div>
+	<!-- Sandals (Sando) Section -->
+    <div id="sando-section" style="display: none;">
+      <h2>Sandals (Sando)</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="sando1.jpg" alt="Sando 1">
+          <p><b>Brown Sandals - ₱300.00 per pair</b></p><button onclick="addItem('Brown Sandals')">Add to Order</button> <input type="number" id="BrownSandalsQuantity" value="1" min="1">
+          <p id="BrownSandalsStock">Stock: 10</p>
+        </li>
+        <li>
+          <img src="sando2.jpg" alt="Sando 2">
+          <p><b>Black Sandals - ₱250.00 per pair</b></p><button onclick="addItem('Black Sandals')">Add to Order</button> <input type="number" id="BlackSandalsQuantity" value="1" min="1">
+          <p id="BlackSandalsStock">Stock: 8</p>
+        </li>
+        <li>
+          <img src="sando3.jpg" alt="Sando 3">
+          <p><b>White Sandals - ₱300.00 per pair</b></p><button onclick="addItem('White Sandals')">Add to Order</button> <input type="number" id="WhiteSandalsQuantity" value="1" min="1">
+          <p id="WhiteSandalsStock">Stock: 6</p>
+        </li>
+        <li>
+          <img src="sando4.jpg" alt="Sando 4">
+          <p><b>Red Sandals - ₱300.00 per pair</b></p><button onclick="addItem('Red Sandals')">Add to Order</button> <input type="number" id="RedSandalsQuantity" value="1" min="1">
+          <p id="RedSandalsStock">Stock: 5</p>
+        </li>
+      </ul>
+    </div><!-- Perfume Section -->
+    <div id="perfume-section" style="display: none;">
+      <h2>Perfume</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="perfume1.jpg" alt="Perfume 1">
+          <p><b>Floral Perfume - ₱150.00 per bottle</b></p><button onclick="addItem('Floral Perfume')">Add to Order</button> <input type="number" id="FloralPerfumeQuantity" value="1" min="1">
+          <p id="FloralPerfumeStock">Stock: 20</p>
+        </li>
+        <li>
+          <img src="perfume2.jpg" alt="Perfume 2">
+          <p><b>Citrus Perfume - ₱180.00 per bottle</b></p><button onclick="addItem('Citrus Perfume')">Add to Order</button> <input type="number" id="CitrusPerfumeQuantity" value="1" min="1">
+          <p id="CitrusPerfumeStock">Stock: 15</p>
+        </li>
+        <li>
+          <img src="perfume3.jpg" alt="Perfume 3">
+          <p><b>Lavender Perfume - ₱170.00 per bottle</b></p><button onclick="addItem('Lavender Perfume')">Add to Order</button> <input type="number" id="LavenderPerfumeQuantity" value="1" min="1">
+          <p id="LavenderPerfumeStock">Stock: 18</p>
+        </li>
+        <li>
+          <img src="perfume4.jpg" alt="Perfume 4">
+          <p><b>Ocean Perfume - ₱190.00 per bottle</b></p><button onclick="addItem('Ocean Perfume')">Add to Order</button> <input type="number" id="OceanPerfumeQuantity" value="1" min="1">
+          <p id="OceanPerfumeStock">Stock: 16</p>
+        </li>
+      </ul>
+    </div><!-- Toys Section -->
+    <div id="toys-section" style="display: none;">
+      <h2>Toys</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="toy1.jpg" alt="Toy 1">
+          <p><b>Doll - ₱100.00 each</b></p><button onclick="addItem('Doll')">Add to Order</button> <input type="number" id="DollQuantity" value="1" min="1">
+          <p id="DollStock">Stock: 30</p>
+        </li>
+        <li>
+          <img src="toy2.jpg" alt="Toy 2">
+          <p><b>Toy Car - ₱80.00 each</b></p><button onclick="addItem('Toy Car')">Add to Order</button> <input type="number" id="ToyCarQuantity" value="1" min="1">
+          <p id="ToyCarStock">Stock: 25</p>
+        </li>
+        <li>
+          <img src="toy3.jpg" alt="Toy 3">
+          <p><b>Action Figure - ₱120.00 each</b></p><button onclick="addItem('Action Figure')">Add to Order</button> <input type="number" id="ActionFigureQuantity" value="1" min="1">
+          <p id="ActionFigureStock">Stock: 20</p>
+        </li>
+        <li>
+          <img src="toy4.jpg" alt="Toy 4">
+          <p><b>Stuffed Animal - ₱90.00 each</b></p><button onclick="addItem('Stuffed Animal')">Add to Order</button> <input type="number" id="StuffedAnimalQuantity" value="1" min="1">
+          <p id="StuffedAnimalStock">Stock: 18</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    // Define items with stock
+    var items = {
+      "Blue Jeans": { price: 500, stock: 10 },
+      "Black Jeans": { price: 550, stock: 8 },
+      "White Jeans": { price: 550, stock: 6 },
+      "Gray Jeans": { price: 550, stock: 5 },
+      "White T-Shirt": { price: 200, stock: 15 },
+      "Black T-Shirt": { price: 220, stock: 12 },
+      "Red T-Shirt": { price: 200, stock: 10 },
+      "Green T-Shirt": { price: 200, stock: 8 },
+      "Brown Sandals": { price: 300, stock: 10 },
+      "Black Sandals": { price: 250, stock: 8 },
+      "White Sandals": { price: 300, stock: 6 },
+      "Red Sandals": { price: 300, stock: 5 },
+      "Floral Perfume": { price: 150, stock: 20 },
+      "Citrus Perfume": { price: 180, stock: 15 },
+      "Lavender Perfume": { price: 170, stock: 18 },
+      "Ocean Perfume": { price: 190, stock: 16 },
+      "Doll": { price: 100, stock: 30 },
+      "Toy Car": { price: 80, stock: 25 },
+      "Action Figure": { price: 120, stock: 20 },
+      "Stuffed Animal": { price: 90, stock: 18 }
+    };
+
+    // Function to add item to order
+    function addItem(itemName) {
+      var quantity = parseInt(document.getElementById(itemName.replace(/ /g, '') + 'Quantity').value);
+      var totalPrice = items[itemName].price * quantity;
+      var stock = items[itemName].stock;
+
+      if (quantity <= stock) {
+        var listItem = document.createElement('li');
+        listItem.textContent = itemName + ' x ' + quantity + ' - ₱' + totalPrice.toFixed(2);
+        document.getElementById('orderList').appendChild(listItem);
+        updateTotal(totalPrice);
+        items[itemName].stock -= quantity;
+        updateStock(itemName);
+      } else {
+        alert('Insufficient stock for ' + itemName);
+      }
+    }
+
+    // Function to update total price
+    function updateTotal(price) {
+      var total = parseFloat(document.getElementById('totalOrder').textContent.replace('P', ''));
+      total += price;
+      document.getElementById('totalOrder').textContent = 'P' + total.toFixed(2);
+    }
+
+    // Function to update stock
+    function updateStock(itemName) {
+      document.getElementById(itemName.replace(/ /g, '') + 'Stock').textContent = 'Stock: ' + items[itemName].stock;
+    }
+
+    // Function to toggle category display
+    function toggleCategory(category) {
+      var sections = ['jeans-section', 't-shirt-section', 'sando-section', 'perfume-section', 'toys-section'];
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i] === category + '-section') {
+          document.getElementById(sections[i]).style.display = 'block';
+        } else {
+          document.getElementById(sections[i]).style.display = 'none';
+        }
+      }
+    }
+  </script>
+</body>
+</html>

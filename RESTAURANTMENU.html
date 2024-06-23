@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      background-color: #FFC0CB;
+      margin: 0;
+      padding: 0;
+      background-image: linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%), linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%);
+      background-size: 20px 20px;
+    }
+
+    h1 {
+      color: #C71585;
+      background-color: #DB7093;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 75px;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    #menu-container {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 40px;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    button {
+      background-color: #FF1493;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #663399;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      margin: 20px;
+      background-color: #DB7093;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 200px;
+    }
+
+    img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    p {
+      color: #000000;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    total {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Restaurant Menu</h1>
+
+  <div id="menu-container">
+    <button onclick="toggleCategory('main-dishes')"><b>Main Dishes</b></button>
+    <button onclick="toggleCategory('vegetables')"><b>Vegetables</b></button>
+    <button onclick="toggleCategory('dessert')"><b>Dessert</b></button>
+    <button onclick="toggleCategory('drinks')"><b>Drinks</b></button>
+    <button onclick="toggleCategory('add-ons')"><b>Add-ons</b></button>
+	
+	 <!-- Order results will be displayed here -->
+    <ul id="orderList"></ul>
+    <total>Total Order: <span id="totalOrder">P0.00</span></total>
+
+    <!-- Main Dishes Section -->
+    <div id="main-dishes-section" style="display: none;">
+      <h2>Main Dishes</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="menudo.jpg" alt="Menudo">
+          <p><b>Menudo - ₱200.00 per serving</b></p>
+          <button onclick="addItem('Menudo', 200)">Add to Order</button>
+        </li>
+        <li>
+          <img src="adobo.jpg" alt="Adobo">
+          <p><b>Adobo - ₱250.00 per serving</b></p>
+		  <button onclick="addItem('Adobo', 250)">Add to Order</button>
+        </li>
+        <li>
+          <img src="sinigang.jpg" alt="Sinigang">
+          <p><b>Sinigang - ₱300.00 per serving</b></p>
+		  <button onclick="addItem('Sinigang', 300)">Add to Order</button>
+        </li>
+        <li>
+          <img src="kare-kare.jpg" alt="Kare-Kare">
+          <p><b>Kare-Kare - ₱400.00 per serving</b></p>
+		  <button onclick="addItem('Kare-Kare', 400)">Add to Order</button>
+        </li>
+        <li>
+          <img src="bulalo.webp" alt="Bulalo">
+          <p><b>Bulalo - ₱500.00 per serving</b></p>
+		  <button onclick="addItem('Bulalo', 500)">Add to Order</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Vegetables Section -->
+    <div id="vegetables-section" style="display: none;">
+      <h2>Vegetables</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="chopsuey.jpg" alt="Chopsuey">
+          <p><b>Chopsuey - ₱180.00 per serving</b></p>
+          <button onclick="addItem('Chopsuey', 180)">Add to Order</button>
+        </li>
+         <li>
+          <img src="ginataang-langka.jpg" alt="Ginataang Langka">
+          <p><b>Ginataang Langka - ₱130.00 per serving</b></p>
+		  <button onclick="addItem('Ginataang Langka', 130)">Add to Order</button>
+        </li>
+        <li>
+          <img src="Tortang Talong.webp" alt="Tortang Talong">
+          <p><b>Tortang Talong - ₱150.00 per serving</b></p>
+		  <button onclick="addItem('Tortang Talong', 150)">Add to Order</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Dessert Section -->
+    <div id="dessert-section" style="display: none;">
+      <h2>Dessert</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="ice-cream.jpg" alt="Ice Cream">
+          <p><b>Ice Cream - ₱80.00 per serving</b></p>
+          <button onclick="addItem('Ice Cream', 80)">Add to Order</button>
+        </li>
+         <li>
+          <img src="leche-flan.jpg" alt="Leche Flan">
+          <p><b>Leche Flan - ₱100.00 per tub</b></p>
+		  <button onclick="addItem('Leche Flan', 100)">Add to Order</button>
+        </li>
+        <li>
+          <img src="buko salad.jpg" alt="Buko Salad">
+          <p><b>Buko Salad - ₱150.00 per tub</b></p>
+		  <button onclick="addItem('Buko Salad', 150)">Add to Order</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Drinks Section -->
+    <div id="drinks-section" style="display: none;">
+      <h2>Drinks</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="buko-juice.jpeg" alt="Buko Juice">
+          <p><b>Buko Juice - ₱50.00</b></p>
+          <button onclick="addItem('Buko Juice', 50)">Add to Order</button>
+        </li>
+         <li>
+          <img src="orange-juice.jpg" alt="Orange Juice">
+          <p><b>Orange Juice - ₱60.00</b></p>
+		  <button onclick="addItem('Orange Juice', 60)">Add to Order</button>
+        </li>
+        <li>
+          <img src="coffee.png" alt="Coffee">
+          <p><b>Coffee - ₱100.00</b></p>
+		  <button onclick="addItem('Coffee', 100)">Add to Order</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Add-ons Section -->
+    <div id="add-ons-section" style="display: none;">
+      <h2>Add-ons</h2>
+      <ul class="menu-item">
+        <li>
+          <img src="burger.webp" alt="Burger">
+          <p><b>Burger - ₱120.00 per order</b></p>
+          <button onclick="addItem('Burger', 120)">Add to Order</button>
+        </li>
+        <li>
+          <img src="fries.webp" alt="Fries">
+          <p><b>Fries - ₱140.00 per order</b></p>
+		  <button onclick="addItem('Fries', 140)">Add to Order</button>
+        </li>
+        <li>
+          <img src="rice.webp" alt="Rice">
+          <p><b>Rice - ₱75.00 per cup</b></p>
+		  <button onclick="addItem('Rice', 75)">Add to Order</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    var orders = [];
+
+    function toggleCategory(category) {
+      var sections = document.querySelectorAll('#menu-container > div');
+      sections.forEach(function(section) {
+        if (section.id === category + '-section') {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
+
+    function addItem(itemName, price) {
+      var quantity = 1; // Default quantity
+      orders.push({
+        name: itemName,
+        price: price,
+        quantity: quantity
+      });
+      updateOrderList();
+    }
+
+    function updateOrderList() {
+      var orderList = document.getElementById('orderList');
+      orderList.innerHTML = '';
+
+      var total = 0;
+      orders.forEach(function(order) {
+        var listItem = document.createElement('li');
+        listItem.innerText = `${order.name} - Quantity: ${order.quantity} = ₱${order.price * order.quantity}`;
+        orderList.appendChild(listItem);
+        total += order.price * order.quantity;
+      });
+
+      document.getElementById('totalOrder').innerText = '₱' + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>

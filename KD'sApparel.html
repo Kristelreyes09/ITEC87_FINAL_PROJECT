@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KD's Clothing Apparel</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      background-color: #FFC0CB;
+      margin: 0;
+      padding: 0;
+	  font-size: 26px;
+      background-image: linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%), linear-gradient(45deg, #e6e6e6 25%, transparent 25%, transparent 75%, #e6e6e6 75%);
+      background-size: 20px 20px;
+    }
+
+    h1 {
+      color: #C71585;
+      background-color: #DB7093;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 75px;
+      font-family: 'Times New Roman', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+	
+	h3 {
+      color: pink;
+      margin-top: 10px;
+    }
+	.logo {
+      height: auto;
+      width: 500px;
+      text-align: center;
+    }
+
+    .category img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    #menu-container {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 40px;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    button {
+      background-color: #FF1493;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #663399;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      margin: 20px;
+      background-color: #DB7093;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 200px;
+    }
+
+    p {
+      color: #000000;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>
+    <div id="Clothing Store">
+      <img class="logo" src="reyes_logo.png" alt="Logo">
+    </div>
+  </h1>
+
+  <div id="menu-container">
+    <button class="button" onclick="toggleCategory('jeans-section')"><b>Jeans</b></button>
+    <button class="button" onclick="toggleCategory('t-shirt-section')"><b>T-Shirt</b></button>
+    <button class="button" onclick="toggleCategory('sando-section')"><b>Sando</b></button>
+    <button class="button" onclick="toggleCategory('perfume-section')"><b>Perfume</b></button>
+    <button class="button" onclick="toggleCategory('toys-section')"><b>Toys</b></button>
+  </div>
+	
+  <div id="jeans-section" class="category" style="display: none;">
+    <h2>Jeans</h2>
+    <ul class="menu-item">
+      <li>
+        <img src="jeans1.jpg" alt="Jeans 1">
+        <p><b>Blue Jeans - ₱750.00 per piece: <span id="BlueJeans-Stock">100</span></b></p>
+        <input type="number" id="BlueJeansQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Blue Jeans', 750.00, 'BlueJeansQuantity')">Buy</button>
+      </li>  
+      <li>
+        <img src="jeans2.jpg" alt="Jeans 2">
+        <p><b>Black Jeans - ₱800.00 per piece: <span id="BlackJeans-Stock">100</span></b></p>
+        <input type="number" id="BlackJeansQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Black Jeans', 800.00, 'BlackJeansQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="jeans3.jpg" alt="Jeans 3">
+        <p><b>White Jeans - ₱750.00 per piece: <span id="WhiteJeans-Stock">100</span></b></p>
+        <input type="number" id="WhiteJeansQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('White Jeans', 750.00, 'WhiteJeansQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="jeans4.jpg" alt="Jeans 4">
+        <p><b>Gray Jeans - ₱800.00 per piece: <span id="GrayJeans-Stock">100</span></b></p>
+        <input type="number" id="GrayJeansQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Gray Jeans', 800.00, 'GrayJeansQuantity')">Buy</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="t-shirt-section" class="category" style="display: none;">
+    <h2>T-Shirts</h2>
+    <ul class="menu-item">
+      <li>
+        <img src="tshirt1.png" alt="T-Shirt 1">
+        <p><b>White T-Shirt - ₱200.00 per piece: <span id="WhiteT-Shirt-Stock">100</span></b></p>
+        <input type="number" id="WhiteT-ShirtQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('White T-Shirt', 200.00, 'WhiteT-ShirtQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="tshirt2.jpg" alt="T-Shirt 2">
+        <p><b>Black T-Shirt - ₱200.00 per piece: <span id="BlackT-Shirt-Stock">100</span></b></p>
+        <input type="number" id="BlackT-ShirtQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Black T-Shirt', 200.00, 'BlackT-ShirtQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="tshirt3.jpg" alt="T-Shirt 3">
+        <p><b>Red T-Shirt - ₱200.00 per piece: <span id="RedT-Shirt-Stock">100</span></b></p>
+        <input type="number" id="RedT-ShirtQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Red T-Shirt', 200.00, 'RedT-ShirtQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="tshirt4.jpg" alt="T-Shirt 4">
+        <p><b>Blue T-Shirt - ₱200.00 per piece: <span id="BlueT-Shirt-Stock">100</span></b></p>
+        <input type="number" id="BlueT-ShirtQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Blue T-Shirt', 200.00, 'BlueT-ShirtQuantity')">Buy</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="sando-section" class="category" style="display: none;">
+    <h2>Sando</h2>
+    <ul class="menu-item">
+      <li>
+        <img src="sando1.jpg" alt="Sando 1">
+        <p><b>Red Sando - ₱150.00 per piece: <span id="RedSando-Stock">100</span></b></p>
+        <input type="number" id="RedSandoQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Red Sando', 150.00, 'RedSandoQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="sando2.jpg" alt="Sando 2">
+        <p><b>Black Sando - ₱150.00 per piece: <span id="BlackSando-Stock">100</span></b></p>
+        <input type="number" id="BlackSandoQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Black Sando', 150.00, 'BlackSandoQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="sando3.jpg" alt="Sando 3">
+        <p><b>White Sando - ₱150.00 per piece: <span id="WhiteSando-Stock">100</span></b></p>
+        <input type="number" id="WhiteSandoQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('White Sando', 150.00, 'WhiteSandoQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="sando4.jpg" alt="Sando 4">
+        <p><b>Blue Sando - ₱150.00 per piece: <span id="BlueSando-Stock">100</span></b></p>
+        <input type="number" id="BlueSandoQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Blue Sando', 150.00, 'BlueSandoQuantity')">Buy</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="perfume-section" class="category" style="display: none;">
+    <h2>Perfume</h2>
+    <ul class="menu-item">
+      <li>
+        <img src="perfume1.jpg" alt="Perfume 1">
+        <p><b>Floral - ₱150.00 per piece: <span id="Floral-Stock">100</span></b></p>
+        <input type="number" id="FloralQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Floral', 150.00, 'FloralQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="perfume2.jpg" alt="Perfume 2">
+        <p><b>Citrus - ₱150.00 per piece: <span id="Citrus-Stock">100</span></b></p>
+        <input type="number" id="CitrusQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Citrus', 150.00, 'CitrusQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="perfume3.jpg" alt="Perfume 3">
+        <p><b>Men- ₱150.00 per piece: <span id="Men-Stock">100</span></b></p>
+        <input type="number" id="MenQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Men', 150.00, 'MenQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="perfume4.jpg" alt="Perfume 4">
+        <p><b>Hugo - ₱150.00 per piece: <span id="Hugo-Stock">100</span></b></p>
+        <input type="number" id="HugoQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Hugo', 150.00, 'HugoQuantity')">Buy</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="toys-section" class="category" style="display: none;">
+    <h2>Toys</h2>
+    <ul class="menu-item">
+      <li>
+        <img src="toy1.jpg" alt="Toy 1">
+        <p><b>Doll - ₱500.00 per piece: <span id="Doll-Stock">100</span></b></p>
+        <input type="number" id="DollQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Doll', 500.00, 'DollQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="toy2.jpg" alt="Toy 2">
+        <p><b>RC Car - ₱700.00 per piece: <span id="RCCar-Stock">100</span></b></p>
+        <input type="number" id="RCCarQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('RC Car', 700.00, 'RCCarQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="toy3.jpg" alt="Toy 3">
+        <p><b>Barbie - ₱150.00 per piece: <span id="Barbie-Stock">100</span></b></p>
+        <input type="number" id="BarbieQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Barbie', 150.00, 'BarbieQuantity')">Buy</button>
+      </li>
+      <li>
+        <img src="toy4.jpg" alt="Toy 4">
+        <p><b>Teddy Bear - ₱200.00 per piece: <span id="TeddyBear-Stock">100</span></b></p>
+        <input type="number" id="TeddyBearQuantity" value="1" min="1">
+        <button class="buy-button" onclick="addToCart('Teddy Bear', 200.00, 'TeddyBearQuantity')">Buy</button>
+      </li>
+    </ul>
+  </div>
+  
+  <div id="cart-container">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+	<p><b>Total Items: <span id="total-items">0</span></b></p>
+    <p><b>Total Price: ₱<span id="total-price">0.00</span></b></p>
+	<ul id="cart-items"></ul>
+  <div>
+    <label for="paid-amount">Enter Paid Amount:</label>
+    <input type="number" id="paid-amount">
+    <button onclick="checkout()">Checkout</button>
+    <p>Change Due: ₱<span id="change-due">0.00</span></p>
+  </div>
+<div>	
+<select id="discount-type">
+  <option value="none">None</option>
+  <option value="student">Student Discount (10%)</option>
+  <option value="senior">Senior Citizen Discount (20%)</option>
+  <option value="pwd">PWD Discount (30%)</option>
+</select>
+</div>
+
+    <button onclick="applyDiscount()">Apply Discount</button>
+    <p><b>Discounted Price: ₱<span id="discounted-price">0.00</span></b></p>
+  </div>
+	<button onclick="refreshPage()">Refresh</button>
+
+  
+    </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="order-list"></div>
+
+            </div>
+        <div>	 <a href="Stock-Management.html"> Stocks </a> </div>
+</div>
+
+  <script>
+  const cart = [];
+let totalPrice = 0.00;
+
+function toggleCategory(categoryId) {
+  const sections = document.getElementsByClassName('category');
+  for (const section of sections) {
+    section.style.display = 'none';
+  }
+  document.getElementById(categoryId).style.display = 'block';
+}
+
+function addToCart(item, price, quantityId) {
+  const quantity = parseInt(document.getElementById(quantityId).value);
+  const stockId = item.replace(/ /g, '') + '-Stock';
+  const stockElement = document.getElementById(stockId);
+  const stock = parseInt(stockElement.innerText);
+
+  if (quantity > stock) {
+    alert('Not enough stock available');
+    return;
+  }
+
+  stockElement.innerText = stock - quantity;
+
+  const cartItem = cart.find(ci => ci.item === item);
+  if (cartItem) {
+    cartItem.quantity += quantity;
+  } else {
+    cart.push({ item, price, quantity });
+  }
+
+  updateCartDisplay();
+  updateTotalPrice();
+  updateTotalItems(); // Update total items whenever the cart is updated
+}
+
+function updateCartDisplay() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';
+
+  cart.forEach(cartItem => {
+    const li = document.createElement('li');
+    li.textContent = `${cartItem.quantity} x ${cartItem.item} - ₱${(cartItem.price * cartItem.quantity).toFixed(2)}`;
+    
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.onclick = function() {
+      removeFromCart(cartItem.item);
+    };
+    
+    li.appendChild(removeButton);
+    cartItemsContainer.appendChild(li);
+  });
+}
+
+function removeFromCart(item) {
+  const index = cart.findIndex(cartItem => cartItem.item === item);
+  if (index !== -1) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+    updateTotalPrice();
+    updateTotalItems(); // Update total items whenever the cart is updated
+  }
+}
+
+function updateTotalPrice() {
+  totalPrice = cart.reduce((sum, cartItem) => sum + cartItem.price * cartItem.quantity, 0);
+  document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+}
+
+function applyDiscount() {
+  const discountType = document.getElementById('discount-type').value;
+  let discountedPrice = totalPrice;
+
+  if (discountType === 'student') {
+    discountedPrice *= 0.90; // 10% discount for students
+  } else if (discountType === 'senior') {
+    discountedPrice *= 0.80; // 20% discount for seniors
+  } else if (discountType === 'pwd') {
+    discountedPrice *= 0.70; // 30% discount for PWDs
+  }
+
+  document.getElementById('discounted-price').textContent = discountedPrice.toFixed(2);
+}
+
+function checkout() {
+      const paidAmount = parseFloat(document.getElementById('paid-amount').value);
+      const changeDue = paidAmount - totalPrice;
+      document.getElementById('change-due').textContent = changeDue.toFixed(2);
+    } 
+	
+function updateTotalItems() {
+  const totalItems = cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0);
+  document.getElementById('total-items').textContent = totalItems;
+}
+
+// Initial call to set total items to 0 on page load
+updateTotalItems();
+
+function refreshPage() {
+  // Reload the current page
+  location.reload();
+}
+
+</script>
+
+</body>
+</html>
